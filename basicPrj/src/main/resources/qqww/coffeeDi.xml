@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean class="di_p.OneBean" name="ob1" p:origin="케냐" p:taste="신맛" />
+	<bean class="di_p.OneBean" name="ob2" p:origin="고양이냐" p:taste="야옹맛" />
+	
+	<bean class="di_p.Coffee" name="cc1" p:name="아메리카노" p:price="2100" p:ob-ref="ob1"/>
+	<bean class="di_p.Coffee" name="cc2" p:name="아프리카노" p:price="2300" p:ob-ref="ob1"/>
+	<bean class="di_p.Coffee" name="cc3" p:name="아시아노"   p:price="2600" p:ob-ref="ob2"/>
+</beans>		

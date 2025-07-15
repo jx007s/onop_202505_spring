@@ -28,6 +28,8 @@ public class DiMain {
 		AbstractApplicationContext myContext = 
 				new ClassPathXmlApplicationContext("qqww/myDi.xml");
 		
+		System.out.println("context 완료 --------------------------------------");
+		
 		//bean 가져오기
 		HandPhone hp2 = (HandPhone)myContext.getBean("pp1");
 		
@@ -41,6 +43,9 @@ public class DiMain {
 		Object hp4 = myContext.getBean("pp4");
 		
 		System.out.println("hp4 : "+hp4);
+		
+		
+		System.out.println("cc4 : "+myContext.getBean("cc4"));
 		
 		String [] names = myContext.getBeanDefinitionNames();
 		

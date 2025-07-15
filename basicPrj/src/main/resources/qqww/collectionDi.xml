@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans		
+	      https://www.springframework.org/schema/beans/spring-beans.xsd">
+	      
+	<bean class="java.util.ArrayList" name="arr1">
+		<constructor-arg>
+			<list>
+				<value>아기상어</value>
+				<value>엄마상어</value>
+				<value>아빠상어</value>
+				<value>할머니상어</value>
+				<value>할아버지상어</value>
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>	

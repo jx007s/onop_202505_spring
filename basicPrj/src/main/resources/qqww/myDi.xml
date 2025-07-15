@@ -7,8 +7,9 @@
 	
 	
 	<bean name="cc2" class="di_p.Camera">
-		<property name="name" value="니콘알파"/>
-		<property name="kind" value="DSLR"/>
+		<!--생성자 매개변수 넣기 -->
+		<constructor-arg name="name" value="니콘알파" />
+		<constructor-arg name="kind" value="DSLR" />
 	</bean>
 		
 	<bean name="pp1" class="di_p.HandPhone">
@@ -28,6 +29,17 @@
 	<bean name="cc3" class="di_p.Camera" p:name="소니" p:kind="축구선수"/>
 		
 	<bean name="pp4" class="di_p.HandPhone" p:name="원빈폰" p:price="100" p:cam-ref="cc3" />
-		
 	
+	
+	<bean name="cc4" class="di_p.Camera">
+		<!--생성자 매개변수 순서에 맞게 입력 -->
+		<constructor-arg value="월드콘알파" />
+		<constructor-arg value="광학" />
+	</bean>	
+	
+	<!-- 생성자 매개변수가 맞지 않음
+	<bean name="cc5" class="di_p.Camera">
+		<constructor-arg value="꼬깔콘알파" />
+	</bean>	
+	-->
 </beans>
