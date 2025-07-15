@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<bean name="cc2" class="di_p.Camera">
+		<property name="name" value="니콘알파"/>
+		<property name="kind" value="DSLR"/>
+	</bean>
+		
+	<bean name="pp1" class="di_p.HandPhone">
+		<property name="name">
+			<value>어른폰</value>
+		</property>
+		<!--속성(멤버변수) 넣기 : setter 필수 -->
+		<property name="price" value="150"/>
+		<property name="cam">
+			<ref bean="cc2"/>
+		</property>
+	</bean>
+	
+	
+	<bean name="pp3" class="di_p.HandPhone" p:name="아저씨폰" p:price="120" p:cam-ref="cc2" />
+	
+	<bean name="cc3" class="di_p.Camera" p:name="소니" p:kind="축구선수"/>
+		
+	<bean name="pp4" class="di_p.HandPhone" p:name="원빈폰" p:price="100" p:cam-ref="cc3" />
+		
+	
+</beans>
