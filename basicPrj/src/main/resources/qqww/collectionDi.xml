@@ -45,6 +45,7 @@
 	
 	<bean class="java.util.ArrayList" name="arr3">
 		<constructor-arg>
+		<!--LinkedHashSet-->
 			<set>
 				<value>아기상어</value>
 				<value>엄마상어</value>
@@ -58,6 +59,7 @@
 	
 	<bean class="java.util.HashSet" name="ss3">
 		<constructor-arg>
+		<!--LinkedHashSet-->
 			<set>
 				<value>아기상어</value>
 				<value>엄마상어</value>
@@ -69,5 +71,56 @@
 		</constructor-arg>
 	</bean>
 	
+	<bean class="java.util.HashMap" name="mm1">
+		<constructor-arg>
+			<map>
+				<entry>
+					<key><value>사자</value></key>
+					<value>포유류</value>
+				</entry>
+				<entry>
+					<key><value>독수리</value></key>
+					<value>조류</value>
+				</entry>
+				<entry>
+					<key><value>호랑이</value></key>
+					<value>포유류</value>
+				</entry>
+				<entry>
+					<key><value>사자</value></key>
+					<value>팔자</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	<bean class="di_p.OneBean" name="ob1" p:origin="콜롬비아" p:taste="신맛" />
+	<bean class="di_p.OneBean" name="ob2" p:origin="앗싸라비아" p:taste="짠맛" />
+	<bean class="di_p.OneBean" name="ob3" p:origin="케냐" p:taste="단맛" />
+	
+	<bean class="di_p.Camera" name="cc1" p:name="좋은카메라" p:kind="폴라로이드" />
+	<bean class="di_p.Camera" name="cc2" p:name="싼카메라" p:kind="셀룰로이드" />
+	
+	<bean class="java.util.ArrayList" name="arr4">
+		<constructor-arg>
+		<!--LinkedHashSet-->
+			<list>
+				<value>나는무너</value>
+				<value>123.456</value>
+				<value>true</value>
+				<ref bean="ob1"/>
+				<ref bean="cc1"/>
+				<ref bean="ob2"/>
+				<ref bean="cc2"/>
+				<ref bean="ob3"/>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	
+	<bean class="di_p.Stud" name="st2" p:name="장서건">
+	<!-- 배열 매개변수를 , 로 구분하여 원소 입력 가능 -->
+		<property name="jum" value="66,65,61"/>
+	</bean>
 	
 </beans>	

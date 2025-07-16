@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans		
+	      https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean class="di_p.Handle" name="hd" p:name="세모핸들" p:color="빨강"/>
+	
+	<bean class="di_p.Wheel" name="wh1" p:type="경주용" p:size="17"/>
+	<bean class="di_p.Wheel" name="wh2" p:type="장식용" p:size="17"/>
+	<bean class="di_p.Wheel" name="wh3" p:type="오인용" p:size="17"/>
+	<bean class="di_p.Wheel" name="wh4" p:type="사주세용" p:size="17"/>
+	
+	<bean class="di_p.Car" name="cc1" p:name="아주작은자동차" p:hd-ref="hd">
+		<property name="whs">
+			<list>
+				<ref bean="wh1"/>
+				<ref bean="wh2"/>
+				<ref bean="wh3"/>
+				<ref bean="wh4"/>
+			</list>
+		</property>
+	</bean>
+	
+</beans>	

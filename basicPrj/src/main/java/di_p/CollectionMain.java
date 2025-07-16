@@ -32,8 +32,22 @@ public class CollectionMain {
 		System.out.println("arr2 : "+arr2);
 		System.out.println("ss2 : "+ss2);
 		
+		System.out.println(myContext.getBean("arr3"));
+		System.out.println(myContext.getBean("ss3"));
 		
+		System.out.println(myContext.getBean("mm1"));
+		
+		System.out.println(myContext.getBean("arr4"));
+		System.out.println(myContext.getBean("st2"));
 		myContext.close();
 	}
+	/* 
+		자동차를 조립하세요
+		
+		자동차 요소
+		핸들과 바퀴는 다른회사에서 가져옴
+		이름, 핸들, 바퀴4개
+		
+	 * */
 
 }
