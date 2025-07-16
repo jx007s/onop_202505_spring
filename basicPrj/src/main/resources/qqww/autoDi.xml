@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean class="di_p.Camera" name="cam" p:name="Mark_II" p:kind="물놀이용" />
+	<bean class="di_p.Camera" name="cc1" p:name="Mark_III" p:kind="여행용" />
+	<bean class="di_p.Camera" name="camera" p:name="Mark_IV" p:kind="곽철용" />
+	
+	<bean class="di_p.Screen" name="sss" p:kind="레티나" p:size="7" />
+	<bean class="di_p.Mic" name="mm" p:type="노래방마이크" p:bluetooth="true" />
+	
+	<bean class="di_p.HandPhone" name="hp1" p:name="은하수폰" p:price="88" p:cam-ref="cam" />
+	
+	<!-- autoWire 로 bean의 속성을 자동으로 결합
+	byType : 타입이 맞는 bean 결합 : 2개 이상인 경우 에러발생
+	명시적으로 bean 참조가 우선순위를 가짐  - 에러 해결	 
+	-->
+	<bean class="di_p.HandPhone" name="hp2" p:name="푸른하늘폰" p:price="98" autowire="byType" p:cam-ref="cc1"  />
+	
+	<!-- 
+		byName : setter 와 이름이 같은 bean을 자동 참조
+		
+	-->
+	<bean class="di_p.HandPhone" name="hp3" p:name="계수나무폰" p:price="68" autowire="byName"  />
+	
+	
+	<bean class="di_p.Car" name="bung" p:name="아주작은자동차" autowire="byType" />	
+</beans>
