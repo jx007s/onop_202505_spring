@@ -14,7 +14,7 @@ public class Cessna {
 	Engine ee;
 	
 	@Resource
-	Wing ww;
+	Wing wing;
 
 	String name = "작은비행기";
 }

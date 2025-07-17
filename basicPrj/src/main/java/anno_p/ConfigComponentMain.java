@@ -2,14 +2,18 @@ package anno_p;
 
 import java.util.Arrays;
 
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class ComponentMain {
+
+
+import anno_p.bean_p.ConfigCompScan;
+
+public class ConfigComponentMain {
 
 	public static void main(String[] args) {
-		AbstractApplicationContext myContext = 
-				new ClassPathXmlApplicationContext("qqww/componentAnno.xml");
+		ApplicationContext myContext = 
+				new AnnotationConfigApplicationContext(ConfigCompScan.class);
 		
 		System.out.println(Arrays.toString(myContext.getBeanDefinitionNames()));
 		
@@ -22,8 +26,7 @@ public class ComponentMain {
 		System.out.println(myContext.getBean("cessna"));
 		System.out.println(myContext.getBean("helicopter"));
 		
-		
-		myContext.close();
+
 	}
 
 }
