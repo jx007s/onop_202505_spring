@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans		
+	      https://www.springframework.org/schema/beans/spring-beans.xsd
+	      http://www.springframework.org/schema/context		
+	      https://www.springframework.org/schema/context/spring-context.xsd">
+	      
+	<bean class="anno_p.BonChe" name="king" p:name="세종대왕"/>
+	<bean class="anno_p.BonChe" name="ysk" p:name="연산군"/>
+	<bean class="anno_p.Monitor" name="mo1" p:name="삼성커브드" p:size="30"/>
+	<bean class="anno_p.Monitor" name="mo2" p:name="BenQ" p:size="27"/>
+	
+	<bean class="anno_p.KeyBoard" p:name="로지텍" p:type="텐키리스"/>
+	<bean class="anno_p.Mouse" p:name="미키마우스" p:wireless="false"/>
+	
+	<bean class="anno_p.Notebook" name="nb" p:name="그램" />
+	
+	<bean class="anno_p.DeskTop" name="dt" p:name="주연테크" />
+	
+	<context:annotation-config />
+</beans>	      

@@ -3,15 +3,14 @@ package anno_p;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class AutowiredMain {
+public class DeskTopMain {
 
 	public static void main(String[] args) {
 		AbstractApplicationContext myContext = 
-				new ClassPathXmlApplicationContext("qqww/autoAnno.xml");
+				new ClassPathXmlApplicationContext("qqww/deskTopAnno.xml");
 		
-		System.out.println(myContext.getBean("hp1"));
-		
-		System.out.println(myContext.getBean("car"));
+		System.out.println(myContext.getBean("nb"));
+		System.out.println(myContext.getBean("dt"));
 
 		myContext.close();
 	}

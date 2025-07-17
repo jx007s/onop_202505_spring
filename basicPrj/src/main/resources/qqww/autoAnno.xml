@@ -9,10 +9,24 @@
 	      https://www.springframework.org/schema/context/spring-context.xsd">
 	      
 	<bean class="anno_p.Camera" name="cc1" p:name="마크2" p:kind="정물"/>
+	<bean class="anno_p.Camera" name="cam" p:name="제로2" p:kind="인물"/>
 	
 	<bean class="anno_p.Mic" name="mm1" p:type="스피치" p:bluetooth="true"/>
+	<bean class="anno_p.Mic" name="mm" p:type="마이클조던" p:bluetooth="false"/>
 	
 	<bean class="anno_p.HandPhone" name="hp1" p:name="어른폰" />
+	
+	<!-- name 이 없어도 car에서 byType 으로 Handle 을 인지하고 결합 가능-->
+	<bean class="anno_p.Handle" name="hh1" p:name="F1핸들" p:color="빨강"/>
+	<bean class="anno_p.Handle" name="hh2" p:name="T1핸들" p:color="속상"/>
+	<bean class="anno_p.Handle" name="hd" p:name="101핸들" p:color="파랑"/>
+	
+	<bean class="anno_p.Wheel" p:type="오프로드" p:size="19"/>
+	<bean class="anno_p.Wheel" p:type="온로드" p:size="20"/>
+	<bean class="anno_p.Wheel" p:type="실크로드" p:size="18"/>
+	<bean class="anno_p.Wheel" p:type="로드로드" p:size="17"/>
+	
+	<bean class="anno_p.Car" name="car"/>
 	
 	<context:annotation-config />
 </beans>	      
