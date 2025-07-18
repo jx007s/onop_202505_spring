@@ -3,30 +3,26 @@ package aop_p.main_p;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import aop_p.webToon.JoSuk;
+import aop_p.shape.Circle;
+import aop_p.shape.Rectangle;
+import aop_p.shape.Triangle;
 
-public class PointcutMain {
+
+public class ShapeMain {
 
 	public static void main(String[] args) {
 		AbstractApplicationContext myContext = 
-				new ClassPathXmlApplicationContext("qqww/pointcutAop.xml");
+				new ClassPathXmlApplicationContext("qqww/shapeAop.xml");
 
-		JoSuk js = myContext.getBean("joSuk", JoSuk.class);
-		Object rr = js.dog1(10, "아기상어");
-		System.out.println("rr : "+rr);
+		System.out.println(myContext.getBean("rectangle", Rectangle.class).calc(5,7));
+		System.out.println(myContext.getBean("circle", Circle.class).calc(8));
+		System.out.println(myContext.getBean("triangle", Triangle.class).calc(5,6,8));
 		
-		rr = js.dog2(20, "엄마상어");
-		System.out.println("rr : "+rr);
 		
-		rr = js.wife(30);
-		System.out.println("rr : "+rr);
-		
-		rr = js.wife(0);
-		System.out.println("rr : "+rr);
+		System.out.println(myContext.getBean("shapeData"));
 		
 		myContext.close();
 	}
-
 }
 
 /*
