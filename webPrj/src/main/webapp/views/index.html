@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>springMVC</title>
+<style>
+div{
+	width : 100px;
+	height: 100px;
+	border:  1px solid #ccc;
+	background-color: #ff0;
+}
+</style>
+</head>
+<body>
+<h1>springMVC</h1>
+now : [[${now}]]<br/>
+age : <div th:text=${age} />
+per : <div th:text=${per.name} />
+</body>
+</html>
