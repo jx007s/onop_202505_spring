@@ -94,3 +94,8 @@ public class ParamController {
 	}
 	
 }
+
+
+///   학생 데이터(이름,국어,영어,수학,총점,평균)를 출력하세요
+
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>buyOrderReg</title>
+</head>
+<body>
+<h1>buyOrderReg</h1>
+<!-- [[${buyOrder}]] -->
+	<table border="">
+		<tr>
+			<td>제품명</td>
+			<td>단가</td>
+			<td>수량</td>
+			<td>금액</td>
+		</tr>
+		<tr>
+			<td>[[${buyOrder.prods[0].pname}]]</td>
+			<td>[[${buyOrder.prods[0].price}]]</td>
+			<td>[[${buyOrder.prods[0].cnt}]]</td>
+			<td>[[${buyOrder.prods[0].tot}]]</td>
+		</tr>
+		<tr>
+			<td>[[${buyOrder.prods[1].pname}]]</td>
+			<td>[[${buyOrder.prods[1].price}]]</td>
+			<td>[[${buyOrder.prods[1].cnt}]]</td>
+			<td>[[${buyOrder.prods[1].tot}]]</td>
+		</tr>
+		<tr>
+			<td>[[${buyOrder.prods[2].pname}]]</td>
+			<td>[[${buyOrder.prods[2].price}]]</td>
+			<td>[[${buyOrder.prods[2].cnt}]]</td>
+			<td>[[${buyOrder.prods[2].tot}]]</td>
+		</tr>
+		<tr>
+			<td colspan="3" align="right">총 금액</td>
+			<td>[[${buyOrder.tot}]]</td>
+		</tr>
+		<tr>
+			<td rowspan="3">주소</td>
+			<td>우편번호</td>
+			<td colspan="2">[[${buyOrder.ad.zipcode}]]</td>
+		</tr>
+		<tr>
+			<td>기본주소</td>
+			<td colspan="2">[[${buyOrder.ad.addr1}]]</td>
+		</tr>
+		<tr>
+			<td>상세주소</td>
+			<td colspan="2">[[${buyOrder.ad.addr2}]]</td>
+		</tr>
+	</table>
+</body>
+</html>
