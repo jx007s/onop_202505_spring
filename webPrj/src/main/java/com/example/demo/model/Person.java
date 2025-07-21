@@ -4,14 +4,24 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Person {
+	
+	
 
+	public Person(String name, int height, boolean marriage) {
+
+		this.name = name;
+		this.height = height;
+		this.marriage = marriage;
+	}
 	String name;
-	int height;
+	int height,age;
 	boolean marriage;
 }
