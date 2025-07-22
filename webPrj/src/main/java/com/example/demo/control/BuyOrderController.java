@@ -23,3 +23,7 @@ public class BuyOrderController {
 		return "req/buyOrderReg";
 	}
 }
+
+
+/// 5명 학생의 시험정보를 입력-> 계산 하세요
+/// 전체 학생의 총점:평균, 평균:평균

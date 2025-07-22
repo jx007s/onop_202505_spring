@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>studListReg</title>
+</head>
+<body>
+	<h1>studListReg</h1>
+
+		<table border="">
+			<tr>
+				<td>이름</td>
+				<td>국어</td><td>영어</td><td>수학</td>
+				<td>총점</td><td>평균</td>
+				
+			</tr>
+			<tr>
+				<td>[[${studList.studs[0].pname}]]</td>
+				<td>[[${studList.studs[0].kor}]]</td>
+				<td>[[${studList.studs[0].eng}]]</td>
+				<td>[[${studList.studs[0].mat}]]</td>
+				<td>[[${studList.studs[0].tot}]]</td>
+				<td>[[${studList.studs[0].avg}]]</td>
+			</tr>
+			<tr>
+				<td>[[${studList.studs[1].pname}]]</td>
+				<td>[[${studList.studs[1].kor}]]</td>
+				<td>[[${studList.studs[1].eng}]]</td>
+				<td>[[${studList.studs[1].mat}]]</td>
+				<td>[[${studList.studs[1].tot}]]</td>
+				<td>[[${studList.studs[1].avg}]]</td>
+			</tr>
+			<tr>
+				<td>[[${studList.studs[2].pname}]]</td>
+				<td>[[${studList.studs[2].kor}]]</td>
+				<td>[[${studList.studs[2].eng}]]</td>
+				<td>[[${studList.studs[2].mat}]]</td>
+				<td>[[${studList.studs[2].tot}]]</td>
+				<td>[[${studList.studs[2].avg}]]</td>
+			</tr>
+			<tr>
+				<td>[[${studList.studs[3].pname}]]</td>
+				<td>[[${studList.studs[3].kor}]]</td>
+				<td>[[${studList.studs[3].eng}]]</td>
+				<td>[[${studList.studs[3].mat}]]</td>
+				<td>[[${studList.studs[3].tot}]]</td>
+				<td>[[${studList.studs[3].avg}]]</td>
+			</tr>
+			<tr>
+				<td>[[${studList.studs[4].pname}]]</td>
+				<td>[[${studList.studs[4].kor}]]</td>
+				<td>[[${studList.studs[4].eng}]]</td>
+				<td>[[${studList.studs[4].mat}]]</td>
+				<td>[[${studList.studs[4].tot}]]</td>
+				<td>[[${studList.studs[4].avg}]]</td>
+			</tr>
+			<tr>
+				<td colspan="4">전체평균</td>
+				<td>[[${studList.totAvg}]]</td>
+				<td>[[${studList.avgAvg}]]</td>
+			</tr>			
+		</table>
+
+</body>
+</html>
