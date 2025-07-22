@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +23,8 @@ public class Person {
 		this.height = height;
 		this.marriage = marriage;
 	}
-	String name;
+	String name, pid, pw;
 	int height,age;
 	boolean marriage;
+	MultipartFile upfile;
 }
