@@ -25,4 +25,28 @@ public class SessionController {
 		session.setAttribute("per", new Person("정우성", 187, false));
 		return "세션생성";
 	}
+	
+	
+	@ResponseBody
+	@RequestMapping("make2")
+	String make2(HttpSession session) {
+		session.setAttribute("pid", "bbb");
+		session.setAttribute("arr", new int[] {11,22,33});
+		return "세션생성2";
+	}
+	
+	@ResponseBody
+	@RequestMapping("delete1")
+	String delete1(HttpSession session) {
+		session.removeAttribute("pid");
+		session.removeAttribute("arr");
+		return "세션삭제1";
+	}
+	
+	@ResponseBody
+	@RequestMapping("delete2")
+	String delete2(HttpSession session) {
+		session.invalidate();
+		return "세션초기화2";
+	}
 }
