@@ -39,5 +39,30 @@
 	${'장동건' lt '장서건'} : [[${'장동건' lt '장서건'}]]<br/>
 	${'장동건' eq '장서건'} : [[${'장동건' eq '장서건'}]]<br/>
 	${'장동건' ne '장서건'} : [[${'장동건' ne '장서건'}]]<br/>
+	
+	<h2>논리</h2>
+	${true && true} : [[${true && true}]]<br/>
+	${true and true} : [[${true and true}]]<br/>
+	${true || true} : [[${true || true}]]<br/>
+	${true or true} : [[${true or true}]]<br/>
+	${false && true} : [[${false && true}]]<br/>
+	${false and true} : [[${false and true}]]<br/>
+	${false || true} : [[${false || true}]]<br/>
+	${false or true} : [[${false or true}]]<br/>
+	${false && false} : [[${false && false}]]<br/>
+	{false and false} : [[${false and false}]]<br/>
+	${false || false} : [[${false || false}]]<br/>
+	${false or false} : [[${false or false}]]<br/>
+	${true ^ true} : [[<!-- ${true ^ true} -->]]<br/>
+	${!true} : [[${!true}]]<br/>
+	${not true} : [[${not true}]]<br/>
+	
+	<h2>존재</h2>
+	${aa}?:'aa없어요' ==> [[${aa}?:'aa없어요']]<br/>
+	${bb}?:'bb없어요' ==> [[${bb}?:'bb없어요']]<br/>
+	
+	<h2>조건</h2>
+	${ true ? '참이지롱' : '거짓부렁'} ==> [[${ true ? '참이지롱' : '거짓부렁'}]]<br/>
+	${ aa%2==0 ? '짝수' : '홀수'} ==> [[${ aa%2==0 ? '짝수' : '홀수'}]]<br/>
 </body>
 </html>

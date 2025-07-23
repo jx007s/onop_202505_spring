@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>thyme/control</title>
+</head>
+<body>
+	<h1>thyme/control</h1>
+	<th:block th:with="a=60">
+		<h2>if</h2>
+		a : [[${a}]]<br/>
+		if="${a >=20}" <th:block th:if="${a>=20}" th:text="'20 이상'" /><br/>
+		if="${a lt 20}" <th:block th:if="${a lt 20}" th:text="'20 미만'" /><br/>
+		
+		<h2>unless</h2>
+		unless="${a >=20}" <th:block th:unless="${a>=20}" th:text="'20 이상 반대'" /><br/>
+		unless="${a lt 20}" <th:block th:unless="${a lt 20}" th:text="'20 미만 반대'" /><br/>
+		
+		if="${a != null}" <th:block th:if="${a != null}" th:text="|a 등장 : ${a}|" /><br/>
+		if="${b != null}" <th:block th:if="${b != null}" th:text="|b 등장 : ${b}|" /><br/>
+		
+		<h2>switch</h2>
+		a : [[${a}]]<br/>
+		<th:block th:switch="${a}">
+			<th:block th:case="20" th:text="'20이냐?'" />
+			<th:block th:case="30" th:text="'30이냐?'" />
+			<th:block th:case="10" th:text="'10이냐?'" />
+			<th:block th:case="20" th:text="'20이냐_2?'" />
+			<th:block th:case="50" th:text="'50이냐?'" />
+			<th:block th:default th:if="${a != 10 && a != 20 && a != 30 && a != 50}" th:text="'기본이냐?'" />
+			<!-- 항상 나옴 , if문으로 해당조건이 아닌 경우를 지정해야 함-->
+		</th:block>
+	</th:block>
+	
+	
+	<th:block th:with="pname='진우',kor=27,eng=89,mat=51, tot=${kor}+${eng}+${mat}, avg=${tot}/3">
+		<table border="">
+			<tr>
+				<td>이름</td>
+				<td>[[${pname}]]</td>
+			</tr>
+			<tr>
+				<td>국어</td>
+				<td>[[${kor}]]</td>
+			</tr>
+			<tr>
+				<td>영어</td>
+				<td>[[${eng}]]</td>
+			</tr>
+			<tr>
+				<td>수학</td>
+				<td>[[${mat}]]</td>
+			</tr>
+			<tr>
+				<td>총점</td>
+				<td>[[${tot}]]</td>
+			</tr>
+			<tr>
+				<td>평균</td>
+				<td>[[${avg}]]</td>
+			</tr>
+			<tr>
+				<td>등급</td>
+				<td th:if="${avg}>=90" th:text="수" />
+				<td th:if="${avg<90 && avg>=80}" th:text="우" />
+				<td th:if="${avg<80 && avg>=70}" th:text="미" />
+				<td th:if="${avg<70 && avg>=60}" th:text="양" />
+				<td th:if="${avg}<60" th:text="가" />
+			</tr>
+		</table>
+	
+	</th:block>
+</body>
+</html>
+
+<!-- 지역변수를 이용하여 이름,국어,영어,수학 값을 입력하고 총점,평균,등급을 계산 출력하세요 -->
+
+
+

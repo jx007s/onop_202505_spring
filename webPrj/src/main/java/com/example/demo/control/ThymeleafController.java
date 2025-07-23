@@ -41,8 +41,18 @@ public class ThymeleafController {
 	
 	@RequestMapping("/calc")
 	String calc(Model mm) {
-		mm.addAttribute("aa",5);
+		mm.addAttribute("aa",30);
 		return "thyme/calc";
 	
 	}
+	
+	
+	@RequestMapping("/control")
+	String control(Model mm) {
+		mm.addAttribute("aa",30);
+		return "thyme/control";
+	
+	}
+	
+	
 }
