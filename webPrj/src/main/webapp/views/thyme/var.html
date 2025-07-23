@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>thyme/var</title>
+</head>
+<body>
+	<h1>thyme/var</h1>
+	aa:<span th:text="${aa}" /> <br/>
+	bb:[[${bb}]]<br/>
+	cc:[[${cc}]]<br/>
+	cc:[[${cc[0]}]], [[${cc[1]}]], [[${cc[2]}]],  [[<!-- 주석${cc[2], cc[3]} 에러발생-->]] <br/>
+	dd:[[${dd}]]<br/>
+	dd:[[${dd[0]}]],[[${dd[1]}]],[[${dd[2]}]],[[${dd[3]}]]<br/>
+	ee:[[${ee}]]<br/>
+	ee:[[${ee['호랑이']}]],[[${ee['사자']}]],[[${ee['악어']}]],
+	   [[${ee['상어']}]],[[${ee['켄']}]],[[${ee['오타니']}]]<br/>
+	지역변수 ----------- <br/>
+	th:with="ff=${1357}" : 변수선언 <br/>
+	<th:block th:with="ff=${1357}">
+		[[${ff}]]<br/>
+	</th:block>
+	지역변수 ----------- <br/>
+	[[${ff}]]: 블럭 밖에서 사용불가<br/>
+	<th:block th:with="gg='장수풍뎅이',hh=true,ii=2468"><!-- 동시선언 가능 -->
+		gg:[[${gg}]]<br/>
+		hh:[[${hh}]]<br/>
+		ii:[[${ii}]]<br/>
+		----------- <br/>
+		<th:block th:with="hh=${998877}"><!--기존 변수를 변경 -->
+			gg:[[${gg}]]<br/>
+			hh:[[${hh}]]<br/><!--998877 -->
+			ii:[[${ii}]]<br/>
+		</th:block>
+		----------- <br/>
+		gg:[[${gg}]]<br/>
+		hh:[[${hh}]]<br/><!--  true -->
+		ii:[[${ii}]]<br/>
+	</th:block>
+</body>
+</html>
