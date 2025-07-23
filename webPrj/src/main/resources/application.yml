@@ -1,6 +1,10 @@
 server :
-    port : 80
-
+  port : 80
+  servlet:
+    context-path: /asdf
+#    호스트를 여러개로 분리할 경우 context-path: /호스트명
+#    으로 분리하여 처리한다.    
+     
 
 
 spring:

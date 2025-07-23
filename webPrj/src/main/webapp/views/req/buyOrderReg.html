@@ -14,7 +14,7 @@
 			<td>수량</td>
 			<td>금액</td>
 		</tr>
-		<tr>
+<!-- 	<tr>
 			<td>[[${buyOrder.prods[0].pname}]]</td>
 			<td>[[${buyOrder.prods[0].price}]]</td>
 			<td>[[${buyOrder.prods[0].cnt}]]</td>
@@ -31,7 +31,15 @@
 			<td>[[${buyOrder.prods[2].price}]]</td>
 			<td>[[${buyOrder.prods[2].cnt}]]</td>
 			<td>[[${buyOrder.prods[2].tot}]]</td>
+		</tr> -->
+		<tr th:each="vv, abcd:${buyOrder.prods}">
+			<td>[[${vv.pname}]]</td>
+			<td>[[${vv.price}]]</td>
+			<td>[[${vv.cnt}]]</td>
+			<td>[[${vv.tot}]]</td>
 		</tr>
+		
+		
 		<tr>
 			<td colspan="3" align="right">총 금액</td>
 			<td>[[${buyOrder.tot}]]</td>

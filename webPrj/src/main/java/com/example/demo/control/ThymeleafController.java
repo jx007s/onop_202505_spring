@@ -37,7 +37,7 @@ public class ThymeleafController {
 		mm.addAttribute("ee",maps);
 		return "thyme/var";
 	}
-	
+	 
 	
 	@RequestMapping("/calc")
 	String calc(Model mm) {
@@ -54,5 +54,28 @@ public class ThymeleafController {
 	
 	}
 	
+	@RequestMapping("/control2")
+	String control2(Model mm) {
+		mm.addAttribute("cc",new String[] {"사자","보이즈","팔자","아저씨즈"});
+		
+		ArrayList<String> shape = new ArrayList();
+		shape.add("직사각형");
+		shape.add("직각삼각형");
+		shape.add("원");
+		shape.add("마름모");
+		
+		HashMap<String, String> maps = new HashMap<>();
+		maps.put("호랑이", "포유류");
+		maps.put("사자", "포유류");
+		maps.put("악어", "파충류");
+		maps.put("오타니", "이도류");
+		maps.put("상어", "어류");
+		maps.put("사자", "단백이");
+		maps.put("켄", "어류어겐");
+		mm.addAttribute("dd",shape);
+		mm.addAttribute("ee",maps);
+		
+		return "thyme/control2";
 	
+	}	
 }

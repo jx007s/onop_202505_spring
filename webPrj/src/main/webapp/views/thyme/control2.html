@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>thyme/control2</title>
+</head>
+<body>
+	<h1>thyme/control2</h1>
+	<h2>array</h2>
+	<th:block th:each="vv, abcd:${cc}">
+	<!-- 
+		vv : 원소
+		abcd.current : 원소 - vv 와 같음
+		abcd.index : 원소번호 0 부터시작
+		abcd.count : 원소번호 1 부터시작
+		abcd.size : 전체 원소 갯수
+	 -->
+		[[${vv}]] , [[${abcd.current}]], [[${abcd.index}]], [[${abcd.count}]]  , [[${abcd}]] <br/>
+	</th:block>
+	
+	<h2>list</h2>
+	<th:block th:each="vv, abcd:${dd}">
+		[[${vv}]] , [[${abcd.current}]], [[${abcd.index}]], [[${abcd.count}]]  , [[${abcd}]] <br/>
+	</th:block>
+	
+	<h2>map</h2>
+	<th:block th:each="vv, abcd:${ee}">
+		[[${vv.key}]] - [[${vv.value}]]<br/>
+		[[${vv}]] , [[${abcd.current}]], [[${abcd.index}]], [[${abcd.count}]]  , [[${abcd}]] <br/>
+	</th:block>
+	
+	<table border="">
+		<tr>
+			<td>key</td>
+			<td>value</td>
+			<td>current</td>
+			<td>index</td>
+			<td>count </td>
+			<td>abcd</td>
+		</tr>
+	
+		<tr th:each="vv, abcd:${ee}">
+			<td>[[${vv.key}]]</td>
+			<td>[[${vv.value}]]</td>
+			<td>[[${abcd.current}]]</td>
+			<td>[[${abcd.index}]]</td>
+			<td>[[${abcd.count}]] </td>
+			<td>[[${abcd}]]</td>
+		</tr>
+	</table>
+	
+	
+	<h2>#numbers.sequence</h2>
+	<th:block th:with="arr=${#numbers.sequence(10,20)}">
+		[[${arr}]] 
+		<!-- #numbers.sequence(10,20) : Integer 배열 [Ljava.lang.Integer;@36c8ac5a 
+		
+			arr=${#numbers.sequence(10,20)}
+			Integer [] arr = {10,11,12,13,14,15,16,17,18,19,20};
+		 -->
+		<br/>
+		<th:block th:each="vv, abcd:${arr}">
+			[[${vv}]] , [[${abcd.current}]], [[${abcd.index}]], [[${abcd.count}]]  , [[${abcd}]] <br/>
+		</th:block>
+	</th:block>
+	
+	<hr/>
+	
+	<!-- #numbers.sequence(10,        20,       2)  
+		                  시작(초기값), 끝(조건),  증감
+		                  from       to        step
+		                  
+		Integer [] arr = {10,12,14,16,18,20};
+		 -->
+	
+	<th:block th:each="vv, abcd:${#numbers.sequence(10,20,2)}">
+		[[${vv}]] , [[${abcd.current}]], [[${abcd.index}]], [[${abcd.count}]]  , [[${abcd}]] <br/>
+	</th:block>
+	
+</body>
+</html>
+
+
+
+
+

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="https://www.thymeleaf.org" lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>buyOrderForm</title>
@@ -13,7 +13,7 @@
 			<td>단가</td>
 			<td>수량</td>
 		</tr>
-		<tr>
+		<!-- <tr>
 			<td><input type="text" name="prods[0].pname" /></td>
 			<td><input type="text" name="prods[0].price" /></td>
 			<td><input type="text" name="prods[0].cnt" /></td>
@@ -27,7 +27,14 @@
 			<td><input type="text" name="prods[2].pname" /></td>
 			<td><input type="text" name="prods[2].price" /></td>
 			<td><input type="text" name="prods[2].cnt" /></td>
+		</tr> -->
+		
+		<tr th:each="vv, abcd:${#numbers.sequence(0,3)}">
+			<td><input type="text" th:name="'prods['+${vv}+'].pname'" /></td>
+			<td><input type="text" th:name="|prods[${vv}].price|" /></td>
+			<td><input type="text" th:name="|prods[${vv}].cnt|"  /></td>
 		</tr>
+		
 		<tr>
 			<td rowspan="3">주소</td>
 			<td>우편번호</td>

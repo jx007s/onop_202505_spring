@@ -40,6 +40,21 @@ spring:
 		
 		
 	}
+	
+	@RequestMapping("/thyme/link")   
+	String link(Model mm) {
+		mm.addAttribute("cate1", "gall");
+		mm.addAttribute("cate2", "winter");
+		mm.addAttribute("pp1", "detail");
+		mm.addAttribute("pp2", 17);
+		
+		return "link";
+		
+	}
+	
+	
+	
+	
 }
 
 /*
