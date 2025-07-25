@@ -86,6 +86,16 @@ public class RedirectController {
 		return mav;
 	}
 	
+	
+	@RequestMapping("from6")
+	String from6(Model mm) {
+		System.out.println("from6 진입 javascript로 rediect");
+		mm.addAttribute("msg", "뭐요 왜요");
+		mm.addAttribute("goUrl", "to?pid=fff&age=62&marriage=true");
+		
+		return "thyme/from6";
+	}
+	
 
 	@ResponseBody
 	@RequestMapping("to")
