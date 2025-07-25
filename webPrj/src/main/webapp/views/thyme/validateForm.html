@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>thyme/validateForm</title>
+<style>
+p{
+	color:#f00;
+}
+</style>
+</head>
+<body>
+<h1>thyme/validateForm</h1>
+<form action="" method="post" th:object="${human}">
+	<table border="">
+		<tr>
+			<td>아이디</td>
+			<td><input type="text" name="pid" />
+			<!--
+			 th:field="*{pid}" 가 아닌 name="pid" 로 하여 
+			 에러발생 이후 view 페이지 진입시 자동으로 필드 내용을 value 에 넣지 못함  
+			
+			 에러가 있을때만 p 태그 내용이 표현되어야 한다.
+				if 문으로 처리
+					human != null : 넘겨받은 human 데이터가 있다면
+					#fields.hasErrors('pid') : pid 에 에러가 있다면
+					
+				에러메세지 출력
+				th:errors="*{pid}"  : pid 에서 유효성검사시 발생된 message를 text node 로 사용한다.
+				아이디 에러여 ==> 무시된다.
+			 -->
+			<p th:if="${human != null && #fields.hasErrors('pid')}"  th:errors="*{pid}">아이디 에러여</p>
+			</td>
+		</tr>
+		<tr>
+			<td>비밀번호</td>
+			<td><input type="text" th:field="*{pw1}" />
+			<!--  th:field="*{pw1}"  ==>  id="pw1" name="pw1" value="입력내용" 를 자동생성 -->
+			
+			<p th:if="${#fields.hasErrors('pw1')}"  th:errors="*{pw1}"/>
+			</td>
+		</tr>
+		<tr>
+			<td>비밀번호확인</td>
+			<td><input type="text" th:field="*{pw2}" />
+			<p th:if="${#fields.hasErrors('pw2')}"  th:errors="*{pw2}"/>
+			</td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td><input type="text" th:field="*{pname}" />
+			<p th:if="${#fields.hasErrors('pname')}"  th:errors="*{pname}"/>
+			</td>
+		</tr>
+		<tr>
+			<td>이메일</td>
+			<td><input type="text" th:field="*{email}" />
+			<p th:if="${#fields.hasErrors('email')}"  th:errors="*{email}"/>
+			</td>
+		</tr>
+		<tr>
+			<td>전화번호</td>
+			<td><input type="text" th:field="*{phone}" />
+			<p th:if="${#fields.hasErrors('phone')}"  th:errors="*{phone}"/>
+			</td>
+		</tr>
+		<tr>
+			<td>취미</td>
+			<td><input type="text" th:field="*{hobby}" />
+			<p th:if="${#fields.hasErrors('hobby')}"  th:errors="*{hobby}"/>
+			</td>
+		</tr>
+		<tr>
+			<td>우편번호</td>
+			<td><input type="text" th:field="*{ma.zipcode}" />
+			<p th:if="${#fields.hasErrors('ma.zipcode')}"  th:errors="*{ma.zipcode}"/>
+			</td>
+		</tr>
+		<tr>
+			<td>기본주소</td>
+			<td><input type="text" th:field="*{ma.addr1}" />
+			<p th:if="${#fields.hasErrors('ma.addr1')}"  th:errors="*{ma.addr1}"/>
+			</td>
+		</tr>
+		<tr>
+			<td>상세주소</td>
+			<td><input type="text" th:field="*{ma.addr2}" />
+			<p th:if="${#fields.hasErrors('ma.addr2')}"  th:errors="*{ma.addr2}"/>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="가입" />
+			</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

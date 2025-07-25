@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="ko"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+<meta charset="UTF-8">
+<title>thyme/layout</title>
+</head>
+<body>
+	<h1>thyme/layout</h1>
+	<!-- 
+	th:replace="parts/hhee" : 상대주소가 아니라 
+	
+	application.yml의 view 설정에 의한 주소설정 
+	 thymeleaf:
+        prefix: /views/
+        suffix: .html
+        
+     /views/parts/hhee.html
+	-->
+	
+	
+	
+	<table border="">
+		<tr>
+			<td colspan="2">
+				<th:block th:replace="parts/hhee"/>
+			</td>
+		</tr>
+		<tr>
+			<td>나는 서브메뉴</td>
+			<td>
+				<th:block th:replace="|mmaa/${cate}/${service}|"/>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<th:block th:replace="parts/fffoo"/>
+			</td>
+		</tr>
+	</table>
+	
+	
+
+</body>
+</html>

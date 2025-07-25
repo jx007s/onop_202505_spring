@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>thyme/form</title>
+</head>
+<body>
+	<h1>thyme/form</h1>
+	<!-- th:action="@{/thyme/submittt}" 절대주소
+	     action="/asdf/thyme/submittt"
+	 -->
+	<form th:action="@{/thyme/submittt}" method="post" th:object="${human}">
+		<table border="">
+			<tr>
+				<td>이름</td>
+				<td><input type="text" th:field="*{pname}"/></td>
+			</tr>
+			<tr>
+				<td>결혼</td>
+				<td>
+					<input type="radio" name="marriage" th:checked="*{marriage}" value="true"/>기혼
+					<input type="radio" name="marriage" th:checked="*{!marriage}" value="false" />미혼
+				</td>
+			</tr>
+			<tr>
+				<td>취미</td>
+				<td>
+					<!-- 
+					value= ${hh.key} : 각각의 key bass,netflix,drink,zumba 가 들어옴
+					 th:field="*{hobby}"로 설정하였기에
+					String hobby="netflix"; 와 같은 value를 확인하여 checked 설정 
+					
+					th:for="${#ids.prev('hobby')}"  : 바로 앞의 id가 hobby 로 자동 설정된 input 과 연결
+					
+					-->
+					<th:block th:each="hh : *{hobbyMap}">
+						<input type="checkbox" th:field="*{hobby}" th:value="${hh.key}" />
+						<label th:for="${#ids.prev('hobby')}" th:text="${hh.value}"/>	
+					</th:block>
+				</td>
+			</tr>
+
+			<tr>
+				<td>메뉴</td>
+				<td>
+				<!--  
+					 th:field="*{menu}"
+					 th:checked="${#lists.contains(human.arChoice,mm)}" 같이 사용불가
+					 
+					 ==> 
+					 name="menu" th:id="${mm}"  처리
+					 th:checked="${#lists.contains(human.arChoice,mm)}"
+				  -->
+					<th:block th:each="mm : *{menus}">
+						<input type="checkbox" name="menu" th:id="${mm}" th:value="${mm}" 
+						th:checked="${#lists.contains(human.arChoice,mm)}"
+						/>
+						<label th:for="${mm}" th:text="${mm}"/>	
+					</th:block>
+				</td>
+			</tr>
+			<tr>
+				<td>직업</td>
+				<td>
+					<select th:field="*{job}">
+						<option th:each="jj : *{jobs}" th:value="${jj}" th:text="${jj}"/>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" value="등록" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

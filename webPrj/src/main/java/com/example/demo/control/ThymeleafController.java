@@ -77,5 +77,19 @@ public class ThymeleafController {
 		
 		return "thyme/control2";
 	
-	}	
+	}
+	
+	
+	@RequestMapping("/layout")
+	String layout(Model mm) {
+		mm.addAttribute("cate","gall");
+		mm.addAttribute("service","list");
+		
+		return "thyme/lao/layout";
+	
+	}
+	
+	
+	
+	
 }
