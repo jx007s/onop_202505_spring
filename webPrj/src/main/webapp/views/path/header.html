@@ -1,0 +1,4 @@
+<h1>path쇼핑몰로고</h1>
+<th:block th:each="mm : ${menus}">
+ 	<a th:href="@{|/pathShop/${mm.key}|}" th:text="${mm.value}"/>
+ </th:block>
