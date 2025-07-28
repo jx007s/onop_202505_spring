@@ -10,15 +10,15 @@
 <table border="">
 	<tr>
 		<td colspan="2">
-			<th:block th:replace="path/header"/>
+			<th:block th:replace="~{path/header}"/>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<th:block th:replace="|path/menu/${pathInfo.cate}|"/>
+			<th:block th:replace="~{|path/side|}"/>
 		</td>
 		<td>
-			<th:block th:replace="|path/main/${pathInfo.cate}/${pathInfo.service}|"/>
+			<th:block th:replace="~{|path/main/${pathInfo.cate}/${pathInfo.service}|}"/>
 		</td>
 	</tr>
 </table>

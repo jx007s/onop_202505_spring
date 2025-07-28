@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.model.PathInfo;
@@ -29,6 +30,33 @@ public class PathShopController {
 		
 		return res;
 	}
+	
+	@ModelAttribute("sides")
+	Map<String, String> sides(@PathVariable("cate") String cate){
+		
+		Map<String, String> info = new LinkedHashMap<>();
+		info.put("hello", "인사말");
+		info.put("history", "연혁");
+		info.put("location", "오시는길");
+		
+		Map<String, String> product = new LinkedHashMap<>();
+		product.put("tv", "TV");
+		product.put("handPhone", "핸드폰");
+		
+		Map<String, String> center = new LinkedHashMap<>();
+		center.put("notice", "공지사항");
+		center.put("fnq", "질문및답변");
+		
+		
+		
+		Map<String, Map<String, String>> res = new LinkedHashMap<>();
+		res.put("info", info);
+		res.put("product", product);
+		res.put("center", center);
+		
+		return res.get(cate);
+	}
+	
 	
 	@RequestMapping
 	String view(PathInfo pi) {

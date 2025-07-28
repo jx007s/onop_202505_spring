@@ -1,0 +1,5 @@
+<h2>[[${pathInfo.cate}]]메뉴</h2>
+<th:block th:each="mm : ${sides}">
+<a th:href="@{|/pathShop/${pathInfo.cate}/${mm.key}|}" th:text="${mm.value}"/><br/>
+</th:block>
+
