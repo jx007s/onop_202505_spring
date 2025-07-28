@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="ko"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>model/shop</title>
+</head>
+<body>
+<h1>model 쇼핑몰</h1>
+<table border="">
+	<tr>
+		<td>
+			<th:block th:replace="shop/header"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<th:block th:replace="|shop/main/${service}|"/>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

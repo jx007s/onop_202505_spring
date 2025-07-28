@@ -1,0 +1,6 @@
+<html xmlns:th="https://www.thymeleaf.org" lang="ko">
+<h2>내가 쇼핑몰의 헤더다</h2>
+<th:block th:each="mm : ${menus}">
+ 	<a th:href="@{|/shop/${mm.key}|}" th:text="${mm.value}"/>
+ </th:block>
+</html>

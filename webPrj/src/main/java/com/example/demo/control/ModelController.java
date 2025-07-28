@@ -8,19 +8,27 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.model.Address;
+import com.example.demo.model.HandPhone;
 import com.example.demo.model.Person;
 import com.example.demo.model.Stud;
+
+import jakarta.annotation.Resource;
 
 @Controller
 @RequestMapping("/mmm")
 public class ModelController {
+	
+
+	@Resource
+	//@ModelAttribute  멤버변수에 직접 model 설정 불가  
+	HandPhone phone;
 
 	// arr 로 model 설정
 	// @ModelAttribute("arr")--> 컨트롤러 접근시 자동 실행
 	@ModelAttribute("arr")
 	int [] meth_1() {
 		int [] res = {11,22,33,44};
-		System.out.println("meth_1() 실행 : "+Arrays.toString(res));
+		System.out.println("meth_1() 실행 : "+Arrays.toString(res)+phone);
 		return res;
 	}
 	
@@ -49,6 +57,16 @@ public class ModelController {
 		res.calc();
 		return res;
 	}
+	
+	
+	@ModelAttribute
+	HandPhone meth_4() {
+		
+		System.out.println("meth_4() 실행 : ");
+		
+		//bean 으로 받은 멤버변수를 model로 사용한다.
+		return phone;
+	} 
 	
 
 	@RequestMapping("list")
