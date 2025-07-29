@@ -15,7 +15,6 @@ import jakarta.servlet.http.HttpServletRequest;
 // ErrorController : spring boot 에서 에러발생에 대한 예외처리 
 public class CustomErrorController implements ErrorController{
 
-	@ResponseBody
 	@RequestMapping("/error")  //spring boot는 에러발생시 "/error" 로 라우팅함
 	String errorGo(HttpServletRequest request) {
 		
@@ -31,9 +30,28 @@ public class CustomErrorController implements ErrorController{
 			System.out.println("500일때만 와");
 			Throwable e = (Throwable)request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
 			ttt += " , "+e.getMessage();
+			
+			System.out.println(ttt);
+			return "redirect:/";  // 리다이렉트 가능
 		}
 		
-		
-		return ttt;
+		System.out.println(ttt);
+		return "excep/ppp";
 	}
 }
+
+/*
+ 404 : 없는페이지입니다. -> 확인 -> 최초 index
+ 500 : / by zero ==> 0으로 나누었어요 
+       나머지      ==> 내부오류입니다. -> 확인 -> 최초 index
+ * */
+
+
+
+
+
+
+
+
+
+
