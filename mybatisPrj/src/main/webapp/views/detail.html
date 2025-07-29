@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>detail 입니다.</title>
+</head>
+<body>
+	<h1>detail 입니다.</h1>
+	<table border="">
+		<tr>
+			<td>제목</td><td th:text="${dto.title}"/>
+		</tr><tr>
+			<td>작성자</td><td th:text="${dto.pname}"/>
+		</tr><tr>
+			<td>작성일</td><td th:text="${dto.regDate}"/>
+		</tr><tr>
+			<td>파일</td><td th:text="${dto.upfile}"/>
+		</tr><tr>
+			<td>내용</td><td th:utext="${dto.contentBr}"/>
+		</tr><tr>
+			<td colspan="2">
+				<a th:href="@{/}">목록으로</a>
+			</td>
+			
+		</tr>
+	</table>
+</body>
+</html>

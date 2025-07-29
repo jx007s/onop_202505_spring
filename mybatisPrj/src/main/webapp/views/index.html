@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>mybatisPrj 홈입니다.</title>
+</head>
+<body>
+	<h1>mybatisPrj 홈입니다.</h1>
+	<table border="">
+		<tr>
+			<td>번호</td>
+			<td>제목</td>
+			<td>작성자</td>
+			<td>작성일</td>
+		</tr>
+		<tr th:each="dto : ${mainData}">
+			<td th:text="${dtoStat.size-dtoStat.index}"   />
+			<td><a th:href="@{|detail/${dto.id}|}" th:text="${dto.title}"/></td>
+			<td th:text="${dto.pname}"/>
+			<td th:text="${dto.regDate}"/>
+		</tr>
+		<tr>
+			<td colspan="4">
+				<a th:href="@{/insert}">글쓰기</a>
+			</td>
+			
+		</tr>
+	</table>
+</body>
+</html>
