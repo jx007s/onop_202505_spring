@@ -98,9 +98,44 @@ public class HomeController {
 		pInfo.setMsg("암호불일치");
 		pInfo.setGoUrl("/delete/"+dto.getId());
 		
+		int cnt = mapper.delete(dto);
 		
-		//pInfo.setMsg("삭제되었습니다.");
-		//pInfo.setGoUrl("/");
+		if(cnt>0) {  //삭제되었다면
+			pInfo.setMsg("삭제되었습니다.");
+			pInfo.setGoUrl("/");
+		}
+		
+		mm.addAttribute("pInfo", pInfo);
+		return "alert";
+	}
+	
+	
+	
+	@GetMapping("/modify/{no}")
+	String modifyForm(Model mm, @PathVariable("no") int no) {
+		
+		System.out.println("modifyForm 진입:"+no);
+		mm.addAttribute("dto", mapper.detail(no));
+		return "modifyForm";
+	}
+	
+	
+	@PostMapping("/modify/{id}")
+	String modifyReg(Model mm, BoardDTO dto) {
+		System.out.println("modifyReg 진입:"+dto);
+		
+		PageInfo pInfo = new PageInfo();
+		pInfo.setMsg("암호불일치");
+		pInfo.setGoUrl("/modify/"+dto.getId());
+		
+		
+		int cnt = mapper.modify(dto);
+		
+		if(cnt>0) {  //삭제되었다면
+			pInfo.setMsg("수정되었습니다.");
+			pInfo.setGoUrl("/detail/"+dto.getId());
+		}
+		
 		
 		mm.addAttribute("pInfo", pInfo);
 		return "alert";

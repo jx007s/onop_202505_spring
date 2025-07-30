@@ -1,0 +1,32 @@
+
+	<form th:action="@{|/layout/insertReg/1|}" method="post" enctype="multipart/form-data">
+		<table border="">
+			<tr>
+				<td>제목</td>
+				<td><input type="text" name="title" /></td>
+			</tr>
+			<tr>
+				<td>작성자</td>
+				<td><input type="text" name="pname" /></td>
+			</tr>
+			<tr>
+				<td>암호</td>
+				<td><input type="text" name="pw" /></td>
+			</tr>
+			<tr>
+				<td>파일</td>
+				<td><input type="file" name="upFF" /></td>
+			</tr>
+			<tr>
+				<td>내용</td>
+				<td><textarea name="content" ></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<a th:href="@{|/layout/list/${pInfo.nowPage}|}">목록으로</a>
+					<input type="submit" value="작성" />
+				</td>
+			</tr>
+		</table>
+	
+	</form>

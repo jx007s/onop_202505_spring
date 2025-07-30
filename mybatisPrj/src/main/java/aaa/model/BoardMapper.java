@@ -2,9 +2,11 @@ package aaa.model;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface BoardMapper {
@@ -21,4 +23,11 @@ public interface BoardMapper {
 			"(#{title}, #{pname}, #{content}, #{pw}, #{upfile}, now() )"
 			)
 	int insert(BoardDTO dto);
+	
+	@Delete("delete from board where id = #{id} and pw = #{pw}")
+	int delete(BoardDTO dto);
+	
+	@Update("update board set pname = #{pname}, title= #{title}, content = #{content} "+
+	        " where id = #{id} and pw = #{pw} ")
+	int modify(BoardDTO dto);
 }
