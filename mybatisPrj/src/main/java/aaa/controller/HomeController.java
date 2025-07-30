@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -77,6 +78,30 @@ public class HomeController {
 		PageInfo pInfo = new PageInfo();
 		pInfo.setMsg("작성되었습니다."+cnt);
 		pInfo.setGoUrl("/");
+		mm.addAttribute("pInfo", pInfo);
+		return "alert";
+	}
+	
+	
+	@GetMapping("/delete/{id}")
+	String deleteForm(@ModelAttribute("dto") BoardDTO dto) {
+		System.out.println("deleteForm 진입:"+dto);
+		return "deleteForm";
+	}
+	
+	
+	@PostMapping("/delete/{id}")
+	String deleteReg(Model mm, BoardDTO dto) {
+		System.out.println("deleteReg 진입:"+dto);
+		
+		PageInfo pInfo = new PageInfo();
+		pInfo.setMsg("암호불일치");
+		pInfo.setGoUrl("/delete/"+dto.getId());
+		
+		
+		//pInfo.setMsg("삭제되었습니다.");
+		//pInfo.setGoUrl("/");
+		
 		mm.addAttribute("pInfo", pInfo);
 		return "alert";
 	}
