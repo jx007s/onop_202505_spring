@@ -5,7 +5,8 @@ import lombok.Data;
 @Data
 public class PageInfo {
 
-	String msg, goUrl, mainUrl, service;
+	String  mainUrl, cate, service;
+	String msg, goUrl;
 	int nowPage=1;
 	
 	

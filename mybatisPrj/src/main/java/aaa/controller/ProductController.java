@@ -6,26 +6,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import aaa.model.BoardDTO;
-import aaa.model.BoardMapper;
+import aaa.model.ProductDTO;
 import aaa.model.PageInfo;
+import aaa.model.ProductMapper;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping("/notice/{service}/{nowPage}")
-public class LayoutController {
+@RequestMapping("/product/{service}/{nowPage}")
+public class ProductController {
 	
 	@Resource
-	BoardMapper mapper;
+	ProductMapper mapper;
 	
 
 	@ModelAttribute("mainData")
 	Object pInfoGo(@ModelAttribute("pInfo") PageInfo pInfo, 
-			       @ModelAttribute("dto") BoardDTO dto, 
+			       @ModelAttribute("dto") ProductDTO dto, 
 			       HttpServletRequest request) {
 		
-		pInfo.setCate("notice");
+		pInfo.setCate("product");
 		
 		
 		

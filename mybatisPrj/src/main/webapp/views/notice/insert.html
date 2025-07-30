@@ -1,5 +1,5 @@
 
-	<form th:action="@{|/layout/insertReg/1|}" method="post" enctype="multipart/form-data">
+	<form th:action="@{|/${pInfo.cate}/insertReg/1|}" method="post" enctype="multipart/form-data">
 		<table border="">
 			<tr>
 				<td>제목</td>
@@ -23,7 +23,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<a th:href="@{|/layout/list/${pInfo.nowPage}|}">목록으로</a>
+					<a th:href="@{|/${pInfo.cate}/list/${pInfo.nowPage}|}">목록으로</a>
 					<input type="submit" value="작성" />
 				</td>
 			</tr>

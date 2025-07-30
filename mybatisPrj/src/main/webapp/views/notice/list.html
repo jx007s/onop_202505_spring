@@ -8,13 +8,13 @@
 		</tr>
 		<tr th:each="dto : ${mainData}">
 			<td th:text="${dtoStat.size-dtoStat.index}"   />
-			<td><a th:href="@{|/layout/detail/${pInfo.nowPage}/${dto.id}|}" th:text="${dto.title}"/></td>
+			<td><a th:href="@{|/${pInfo.cate}/detail/${pInfo.nowPage}/${dto.id}|}" th:text="${dto.title}"/></td>
 			<td th:text="${dto.pname}"/>
 			<td th:text="${dto.regDate}"/>
 		</tr>
 		<tr>
 			<td colspan="4">
-				<a th:href="@{|/layout/insert/${pInfo.nowPage}|}">글쓰기</a>
+				<a th:href="@{|/${pInfo.cate}/insert/${pInfo.nowPage}|}">글쓰기</a>
 			</td>
 			
 		</tr>

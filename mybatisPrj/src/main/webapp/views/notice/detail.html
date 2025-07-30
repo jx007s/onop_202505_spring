@@ -11,9 +11,9 @@
 			<td>내용</td><td th:utext="${mainData.contentBr}"/>
 		</tr><tr>
 			<td colspan="2">
-				<a th:href="@{|/layout/list/${pInfo.nowPage}|}">목록으로</a>
-				<a th:href="@{|/layout/delete/${pInfo.nowPage}/${mainData.id}|}">삭제</a>
-				<a th:href="@{|/layout/modify/${pInfo.nowPage}/${mainData.id}|}">수정</a>
+				<a th:href="@{|/${pInfo.cate}/list/${pInfo.nowPage}|}">목록으로</a>
+				<a th:href="@{|/${pInfo.cate}/delete/${pInfo.nowPage}/${mainData.id}|}">삭제</a>
+				<a th:href="@{|/${pInfo.cate}/modify/${pInfo.nowPage}/${mainData.id}|}">수정</a>
 			</td>
 			
 		</tr>

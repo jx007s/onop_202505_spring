@@ -1,0 +1,21 @@
+
+	<table border="">
+		<tr>
+			<td>번호</td>
+			<td>제목</td>
+			<td>작성자</td>
+			<td>작성일</td>
+		</tr>
+		<tr th:each="dto : ${mainData}">
+			<td th:text="${dtoStat.size-dtoStat.index}"   />
+			<td><a th:href="@{|/${pInfo.cate}/detail/${pInfo.nowPage}/${dto.id}|}" th:text="${dto.title}"/></td>
+			<td th:text="${dto.pname}"/>
+			<td th:text="${dto.regDate}"/>
+		</tr>
+		<tr>
+			<td colspan="4">
+				<a th:href="@{|/${pInfo.cate}/insert/${pInfo.nowPage}|}">글쓰기</a>
+			</td>
+			
+		</tr>
+	</table>

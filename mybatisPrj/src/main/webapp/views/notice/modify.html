@@ -1,5 +1,5 @@
 
-	<form th:action="@{|/layout/modifyReg/${pInfo.nowPage}/*{id}|}" method="post" th:object="${mainData}">
+	<form th:action="@{|/${pInfo.cate}/modifyReg/${pInfo.nowPage}/*{id}|}" method="post" th:object="${mainData}">
 		<table border="">
 			<tr>
 				<td>제목</td>
@@ -20,7 +20,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<a th:href="@{|/layout/detail/${pInfo.nowPage}/*{id}|}">뒤로</a>
+					<a th:href="@{|/${pInfo.cate}/detail/${pInfo.nowPage}/*{id}|}">뒤로</a>
 					<input type="submit" value="수정" />
 				</td>
 			</tr>
