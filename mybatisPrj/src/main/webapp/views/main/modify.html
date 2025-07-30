@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org" lang="ko">
-<head>
-<meta charset="UTF-8">
-<title>글수정 입니다.</title>
-</head>
-<body>
-	<h1>글수정 입니다.</h1>
-	<form method="post" th:object="${dto}">
+
+	<form th:action="@{|/layout/modifyReg/${pInfo.nowPage}/*{id}|}" method="post" th:object="${mainData}">
 		<table border="">
 			<tr>
 				<td>제목</td>
@@ -27,12 +20,10 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<a th:href="@{|/detail/*{id}|}">뒤로</a>
+					<a th:href="@{|/layout/detail/${pInfo.nowPage}/*{id}|}">뒤로</a>
 					<input type="submit" value="수정" />
 				</td>
 			</tr>
 		</table>
 	
 	</form>
-</body>
-</html>

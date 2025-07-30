@@ -22,18 +22,25 @@ public class LayoutController {
 
 	@ModelAttribute("mainData")
 	Object pInfoGo(@ModelAttribute("pInfo") PageInfo pInfo, 
-					BoardDTO dto, HttpServletRequest request) {
+			       @ModelAttribute("dto") BoardDTO dto, 
+			       HttpServletRequest request) {
 		
 		System.out.println("pInfoGo : "+pInfo);
 		System.out.println("pInfoGo=> dto : "+dto);
 	
+		//list
 		if(pInfo.getService().equals("list")) {
 			return mapper.list();
 		}
 		
-		if(pInfo.getService().equals("detail")) {
+		
+		//detail , modify
+		if(pInfo.getService().equals("detail") || pInfo.getService().equals("modify")) {
 			return mapper.detail(dto.getId());
 		}
+		
+		
+		//insertReg
 		if(pInfo.getService().equals("insertReg")) {
 			
 			//파일 저장
@@ -65,6 +72,38 @@ public class LayoutController {
 			pInfo.setGoUrl("/layout/list/"+pInfo.getNowPage());
 			
 			
+		}
+		
+		
+		//deleteReg
+		if(pInfo.getService().equals("deleteReg")) {
+			
+			pInfo.setMainUrl("alert");
+			pInfo.setMsg("암호불일치");
+			pInfo.setGoUrl("/layout/delete/"+pInfo.getNowPage()+"/"+dto.getId());
+			
+			int cnt = mapper.delete(dto);
+			
+			if(cnt>0) {  //삭제되었다면
+				pInfo.setMsg("삭제되었습니다.");
+				pInfo.setGoUrl("/layout/list/"+pInfo.getNowPage());
+			}
+		}
+		
+		
+		//modifyReg
+		if(pInfo.getService().equals("modifyReg")) {
+			
+			pInfo.setMainUrl("alert");
+			pInfo.setMsg("암호불일치");
+			pInfo.setGoUrl("/layout/modify/"+pInfo.getNowPage()+"/"+dto.getId());
+			
+			int cnt = mapper.modify(dto);
+			
+			if(cnt>0) {  //수정되었다면
+				pInfo.setMsg("수정되었습니다.");
+				pInfo.setGoUrl("/layout/detail/"+pInfo.getNowPage()+"/"+dto.getId());
+			}
 		}
 		
 		return null;
