@@ -1,0 +1,35 @@
+<style>
+	img{
+		width:200px;
+	}
+</style>
+	
+	<table border="">
+		<tr>
+			<td>제목</td><td th:text="${mainData.title}"/>
+		</tr><tr>
+			<td>작성자</td><td th:text="${mainData.pname}"/>
+		</tr><tr>
+			<td>작성일</td><td th:text="${mainData.regDate}"/>
+		</tr>
+		<th:block th:if="${mainData.upfile}">
+			<tr>		
+				<td>파일</td><td>	
+					<img th:if="${mainData.img}" th:src="@{|/fff/${mainData.upfile}|}" alt="" /> 
+				
+					<a th:unless="${mainData.img}" th:href="@{|/fileDown/${mainData.upfile}|}" 
+					   th:text="|${mainData.upfile}다운로드|"/>
+				</td>
+			</tr>
+		</th:block>
+		<tr>
+			<td>내용</td><td th:utext="${mainData.contentBr}"/>
+		</tr><tr>
+			<td colspan="2">
+				<a th:href="@{|/${pInfo.cate}/list/${pInfo.nowPage}|}">목록으로</a>
+				<a th:href="@{|/${pInfo.cate}/delete/${pInfo.nowPage}/${mainData.id}|}">삭제</a>
+				<a th:href="@{|/${pInfo.cate}/modify/${pInfo.nowPage}/${mainData.id}|}">수정</a>
+			</td>
+			
+		</tr>
+	</table>

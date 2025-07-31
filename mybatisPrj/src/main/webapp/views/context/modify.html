@@ -1,0 +1,29 @@
+
+	<form th:action="@{|/${pInfo.cate}/modifyReg/${pInfo.nowPage}/*{id}|}" method="post" th:object="${mainData}">
+		<table border="">
+			<tr>
+				<td>제목</td>
+				<td><input type="text" th:field="*{title}" /></td>
+			</tr>
+			<tr>
+				<td>작성자</td>
+				<td><input type="text" th:field="*{pname}" /></td>
+			</tr>
+			<tr>
+				<td>암호</td>
+				<td><input type="text" name="pw" /></td>
+			</tr>
+			
+			<tr>
+				<td>내용</td>
+				<td><textarea name="content" >[[*{content}]]</textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<a th:href="@{|/${pInfo.cate}/detail/${pInfo.nowPage}/*{id}|}">뒤로</a>
+					<input type="submit" value="수정" />
+				</td>
+			</tr>
+		</table>
+	
+	</form>
