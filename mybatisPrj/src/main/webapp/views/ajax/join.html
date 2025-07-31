@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>ajax/join</title>
+<style>
+	img{
+		width:200px;
+	}
+	#cons{
+		width: 300px;
+		height: 50px;
+		padding: 2px;
+		border: 1px solid #ccc;
+		margin:  5px;
+	}
+	.btn{
+		width: 200px;
+		height: 30px;
+		padding: 2px;
+		border: 1px solid #ccc;
+		margin:  5px;
+		border-radius: 25px 0px;
+		background-color: #ff0;
+		cursor: pointer;
+	}
+</style>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- <script th:src="@{/js/axios.min.js}"></script>   다운받아서 할 경우 -->
+<script>
+	window.onload=function(){
+		//alert("로드되었슴다")
+		var cons = document.querySelector("#cons")
+		var btn1 = document.querySelector("#btn1")
+		var btn2 = document.querySelector("#btn2")
+		var btn3 = document.querySelector("#btn3")
+		var btn4 = document.querySelector("#btn4")
+		
+		var qqq = document.querySelector("#qqq")
+		var ddd = document.querySelector("#ddd")
+		var myFrm = document.querySelector("#myFrm")
+		
+		
+		/// get url
+		btn1.onclick= async function(){
+			//alert("눌렀구만?")
+			
+
+			try{
+
+				//alert(qqq.value)
+				
+				//비동기로 접근
+				const res = await axios.get('/dy/list1?pname='+qqq.value)
+				
+				//정상 결과확인
+				console.log(res.data[0].title)
+				console.log(res.status)
+				console.log(res.statusText)
+				console.log(res.headers)
+				console.log(res.config)
+				console.log(res.request)
+				cons.innerHTML = res.data[0].title+"<br/>"
+			}catch(e){
+				cons.innerHTML = "에러발생"+e
+			}			
+			
+		}
+		
+		/// get data
+		btn2.onclick= async function(){
+			
+			try{
+				var rd = {
+					params:{
+						pname : qqq.value
+					}
+				}
+				//비동기로 접근
+				const res = await axios.get('/dy/list1', rd)
+				
+				cons.innerHTML = res.data[0].title+"<br/>"
+			}catch(e){
+				cons.innerHTML = "에러발생"+e
+			}			
+			
+		}
+		
+		
+		// post 
+		btn3.onclick= async function(){
+			
+			/// params 로 넣어야 한다.
+			try{
+				var rd = {
+						params:{
+							pname : qqq.value,
+							reg_date : ddd.value
+						}
+					}
+				console.log(rd)
+				
+				//3번째 매개변수에 json data로 매개변수 넣는다.
+				const res = await axios.post('/dy/list2',null, rd)
+				
+				cons.innerHTML = res.data[0].title+"<br/>"
+			}catch(e){
+				cons.innerHTML = "에러발생"+e
+			}			
+			
+		}
+		
+		
+		/// post FormData
+		btn4.onclick= async function(){
+			
+			try{
+				var rd = new FormData(myFrm)
+				//FormData 는 하위개체를 name 으로 받아온다
+				// <input type="text" id="qqq" name="pname"/>
+				
+				console.log(rd)
+				//비동기로 접근
+				const res = await axios.post('/dy/list2',rd)
+				
+				cons.innerHTML = res.data[0].title+"<br/>"
+			}catch(e){
+				cons.innerHTML = "에러발생"+e
+			}			
+			
+		}
+		
+	}
+</script>
+</head>
+<body>
+	<h1>ajax/join</h1>
+	<form id="myFrm">
+	이름<input type="text" id="qqq" name="pname"/><br/>
+	등록일<input type="date" id="ddd" name="regDate" /><br/>
+	</form>
+	<div class="btn" id="btn1">get url</div>
+	<div class="btn" id="btn2">get data</div>
+	<div class="btn" id="btn3">post</div>
+	<div class="btn" id="btn4">post FormData</div>
+	<img th:src="@{/fff/bike.jpg}" alt="" />
+	<div id="cons"/>
+</body>
+</html>

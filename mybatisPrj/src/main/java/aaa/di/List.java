@@ -17,7 +17,8 @@ public class List implements MyAction{
 	@Override
 	public Object execute(PageInfo pInfo, BoardDTO dto, HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		return mapper.list();
+		pInfo.setTotalCnt(mapper.totalCnt());
+		return mapper.list2(pInfo);
 	}
 	
 	

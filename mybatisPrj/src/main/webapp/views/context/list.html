@@ -5,13 +5,36 @@
 			<td>제목</td>
 			<td>작성자</td>
 			<td>작성일</td>
+			
 		</tr>
 		<tr th:each="dto : ${mainData}">
 			<td th:text="${dtoStat.size-dtoStat.index}"   />
-			<td><a th:href="@{|/${pInfo.cate}/detail/${pInfo.nowPage}/${dto.id}|}" th:text="${dto.title}"/></td>
+			<td>
+			<th:block th:if="${dto.lev>0}" >
+				<th:block th:each="i : ${#numbers.sequence(1,dto.lev)}">
+					&nbsp;&nbsp;
+				</th:block>
+				└
+			</th:block>
+			
+			<a th:href="@{|/${pInfo.cate}/detail/${pInfo.nowPage}/${dto.id}|}" th:text="${dto.title}"/></td>
 			<td th:text="${dto.pname}"/>
 			<td th:text="${dto.regDate}"/>
 		</tr>
+		<tr>
+		<td colspan="4" align="center">
+			<th:block th:if="${pInfo.startPage > 1}">
+				<a th:href="@{|/${pInfo.cate}/list/${pInfo.startPage-1}|}" th:text="이전"/>
+			</th:block>
+			<th:block th:each="i : ${#numbers.sequence(pInfo.startPage,pInfo.endPage)}">
+				<span th:if="${i==pInfo.nowPage}" th:text="${i}"/>
+				<a th:unless="${i==pInfo.nowPage}" th:href="@{|/${pInfo.cate}/list/${i}|}" th:text="${i}"/>
+			</th:block>
+			<th:block th:if="${pInfo.totalPage > pInfo.endPage}">
+				<a th:href="@{|/${pInfo.cate}/list/${pInfo.endPage+1}|}" th:text="다음"/>
+			</th:block>
+		</td>
+	</tr>
 		<tr>
 			<td colspan="4">
 				<a th:href="@{|/${pInfo.cate}/insert/${pInfo.nowPage}|}">글쓰기</a>

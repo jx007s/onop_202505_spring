@@ -14,6 +14,12 @@ public interface BoardMapper {
 	@Select("select * from board")
 	List<BoardDTO> list();
 	
+	@Select("select * from board  order by gid desc, seq limit #{start}, #{cnt}")
+	List<BoardDTO> list2(PageInfo pInfo);
+	
+	@Select("select count(*) from board")
+	int totalCnt();
+	
 	
 	@Select("select * from board where id = #{id}")
 	BoardDTO detail(int id);

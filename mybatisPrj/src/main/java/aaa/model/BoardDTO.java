@@ -6,8 +6,10 @@ import java.util.Date;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class BoardDTO {
 
 	Integer id,gid, seq, lev, cnt;
@@ -15,6 +17,7 @@ public class BoardDTO {
     Date regDate;
     
     MultipartFile upFF;
+    
     
     
     
@@ -45,5 +48,13 @@ public class BoardDTO {
 
 	public String getContentBr() {
 		return content.replaceAll("\n", "<br/>");
+	}
+
+	public BoardDTO(String title, String pname, String content, String pw) {
+		super();
+		this.title = title;
+		this.pname = pname;
+		this.content = content;
+		this.pw = pw;
 	}
 }
