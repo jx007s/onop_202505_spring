@@ -20,7 +20,4 @@ public class List implements MyAction{
 		pInfo.setTotalCnt(mapper.totalCnt());
 		return mapper.list2(pInfo);
 	}
-	
-	
-
 }
